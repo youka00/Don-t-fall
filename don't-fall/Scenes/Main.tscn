@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://ds7ktjjtyl17t"]
+
+[ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_qry22"]
+[ext_resource type="PackedScene" uid="uid://ccw2uo43go6v7" path="res://Scenes/Platform.tscn" id="2_hvq5i"]
+[ext_resource type="Texture2D" uid="uid://daqk1383x5fy1" path="res://Art/lavabackgorund.png" id="2_tv013"]
+[ext_resource type="PackedScene" uid="uid://bns0rhkneqme8" path="res://Scenes/Player.tscn" id="3_bs315"]
+[ext_resource type="PackedScene" uid="uid://iupcsjoy31sw" path="res://Scenes/PlatformSpawnerNode.tscn" id="4_2sd7t"]
+[ext_resource type="Script" path="res://Scripts/CameraController.cs" id="4_wfhxw"]
+[ext_resource type="PackedScene" uid="uid://c2p0pey4sj266" path="res://Scenes/coint.tscn" id="6_crwc2"]
+[ext_resource type="PackedScene" uid="uid://chs2ijj4xnvt6" path="res://Scenes/audiomanager.tscn" id="8_m4oqb"]
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("Camera", "ScoreLabel", "CoinLabel")]
+script = ExtResource("1_qry22")
+Camera = NodePath("Camera2D")
+ScoreLabel = NodePath("Camera2D/ScoreDisplay")
+CoinLabel = NodePath("Camera2D/CoinCounter")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="background" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(646.5, 415.999)
+scale = Vector2(1.04297, 1.19167)
+texture = ExtResource("2_tv013")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+script = ExtResource("4_wfhxw")
+SpeedIncreaseRate = 1.0
+
+[node name="ScoreDisplay" type="Label" parent="Camera2D"]
+light_mask = 494
+visibility_layer = 1022
+offset_left = -637.0
+offset_top = -351.0
+offset_right = -363.0
+offset_bottom = -310.0
+theme_override_font_sizes/font_size = 40
+text = "x"
+horizontal_alignment = 1
+
+[node name="CoinCounter" type="Label" parent="Camera2D"]
+light_mask = 1022
+visibility_layer = 1022
+offset_left = 422.0
+offset_top = -358.0
+offset_right = 641.0
+offset_bottom = -284.0
+theme_override_font_sizes/font_size = 40
+text = "x"
+horizontal_alignment = 1
+
+[node name="Platform" parent="." instance=ExtResource("2_hvq5i")]
+position = Vector2(629, 680)
+
+[node name="Player" parent="." instance=ExtResource("3_bs315")]
+position = Vector2(628, 591)
+
+[node name="Node2D" parent="." instance=ExtResource("4_2sd7t")]
+PlatformScene = ExtResource("2_hvq5i")
+CoinScene = ExtResource("6_crwc2")
+
+[node name="Coint" parent="." instance=ExtResource("6_crwc2")]
+light_mask = 38
+visibility_layer = 38
+position = Vector2(-179, -3)
+scale = Vector2(1.73814, 1.56322)
+
+[node name="Node2D2" parent="." instance=ExtResource("8_m4oqb")]
+
+[connection signal="body_entered" from="Coint" to="Player" method="_on_coint_body_entered"]
