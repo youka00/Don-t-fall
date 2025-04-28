@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://l6lctm5rvmyy"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_jpp2h"]
+[ext_resource type="Texture2D" uid="uid://daqk1383x5fy1" path="res://Art/lavabackgorund.png" id="2_ak5xo"]
+[ext_resource type="Texture2D" uid="uid://qkq1l5olbp1p" path="res://Art/platform.png" id="3_hxsoa"]
+[ext_resource type="PackedScene" uid="uid://chs2ijj4xnvt6" path="res://Scenes/audiomanager.tscn" id="4_qsvwl"]
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "ExitButton", "Background")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jpp2h")
+StartButton = NodePath("TextureButton")
+ExitButton = NodePath("TextureButton2")
+Background = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1276.0
+offset_bottom = 726.0
+texture = ExtResource("2_ak5xo")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1273.0
+offset_bottom = 162.0
+theme_override_font_sizes/font_size = 102
+text = "Don't Fall"
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 185.0
+offset_right = 830.0
+offset_bottom = 320.0
+texture_normal = ExtResource("3_hxsoa")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 382.0
+offset_bottom = 110.0
+theme_override_font_sizes/font_size = 51
+text = "Play"
+horizontal_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 436.0
+offset_right = 844.0
+offset_bottom = 568.0
+texture_normal = ExtResource("3_hxsoa")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="TextureButton2"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 36.0
+offset_right = 386.0
+offset_bottom = 106.0
+theme_override_font_sizes/font_size = 51
+text = "Quit"
+horizontal_alignment = 1
+
+[node name="Node2D" parent="." instance=ExtResource("4_qsvwl")]
