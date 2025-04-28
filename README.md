@@ -19,7 +19,7 @@ The platforms spawn randomly, and you'll need quick reflexes to jump on them and
 
 A little something personal for me... 😄
 
-![Player's Photo](//Art/me.png)
+![Player's Photo](https://github.com/youka00/Don-t-fall/blob/main/don't-fall/Art/me.png)
 
 ## **Technical Information**
 
