@@ -19,7 +19,7 @@ The platforms spawn randomly, and you'll need quick reflexes to jump on them and
 
 A little something personal for me... 😄
 
-![Player's Photo](res://Art/me.png)
+![Player's Photo](//Art/me.png)
 
 ## **Technical Information**
 
