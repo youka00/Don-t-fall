@@ -20,7 +20,7 @@ The platforms spawn randomly, and you'll need quick reflexes to jump on them and
 A little something personal for me... 😄
 
 ![Player's Photo](https://github.com/youka00/Don-t-fall/blob/main/don't-fall/Art/me.png)
-
+yeah you have to zoom it sorryyy
 ## **Technical Information**
 
 - **Engine**: **Godot v4.3**
